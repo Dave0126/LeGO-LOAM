@@ -50,8 +50,10 @@ using namespace std;
 
 typedef pcl::PointXYZI  PointType;
 
-extern const string pointCloudTopic = "/velodyne_points";
-extern const string imuTopic = "/imu/data";
+extern const string pointCloudTopic = "/points_raw";
+extern const string imuTopic = "/imu_correct";
+// extern const string pointCloudTopic = "/velodyne_points";
+// extern const string imuTopic = "/imu/data";
 // extern const string imuTopic = "/imu";
 
 // Save pcd
@@ -63,7 +65,7 @@ extern const bool useCloudRing = true; // if true, ang_res_y and ang_bottom are 
 // VLP-16
 // gezebo 模拟时需要与模拟出的VLP-16参数一致
 extern const int N_SCAN = 16;
-extern const int Horizon_SCAN = 900;
+extern const int Horizon_SCAN = 1800;
 extern const float ang_res_x = 0.2;
 extern const float ang_res_y = 2.0;
 extern const float ang_bottom = 15.0+0.1;

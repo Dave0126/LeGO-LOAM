@@ -3,6 +3,10 @@
     <!--- Sim Time -->
     <param name="/use_sim_time" value="true" />
 
+    <!-- <param name="/lego_loam/save_path/file_path" type="string" value="/home/mnf/Workspace/test_catkin_ws/src/LeGO-LOAM/LeGO-LOAM/data/legoloam_path_stevens_dataset_VL16.txt"/> -->
+    <param name="/lego_loam/save_path/file_path" type="string" value="/home/mnf/Workspace/test_catkin_ws/src/LeGO-LOAM/LeGO-LOAM/data/legoloam_path_campus_small_dataset.txt"/>
+    <param name="/lego_loam/save_path/topic_name" type="string" value="/aft_mapped_to_init"/>
+
     <!--- Run Rviz-->
     <node pkg="rviz" type="rviz" name="rviz" args="-d $(find lego_loam)/launch/test.rviz" />
 
@@ -11,9 +15,10 @@
     <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera" args="0 0 0 -1.570795 -1.570795 0        /camera /base_link   10" />
 
     <!--- LeGO-LOAM -->    
-    <node pkg="lego_loam" type="imageProjection"    name="imageProjection"    output="screen"/>
-    <node pkg="lego_loam" type="featureAssociation" name="featureAssociation" output="screen"/>
-    <node pkg="lego_loam" type="mapOptmization"     name="mapOptmization"     output="screen"/>
-    <node pkg="lego_loam" type="transformFusion"    name="transformFusion"    output="screen"/>
+    <node pkg="lego_loam" type="imageProjection"    name="imageProjection"      output="screen"/>
+    <node pkg="lego_loam" type="featureAssociation" name="featureAssociation"   output="screen"/>
+    <node pkg="lego_loam" type="mapOptmization"     name="mapOptmization"       output="screen"/>
+    <node pkg="lego_loam" type="transformFusion"    name="transformFusion"      output="screen"/>
+    <node pkg="lego_loam" type="savePath"           name="savePath"             output="screen"/>
 
 </launch>
